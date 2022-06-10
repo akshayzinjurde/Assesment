@@ -1,0 +1,93 @@
+1. Create a function in python to read the text file and replace specific content of the file.
+
+file = open("example.txt","w")
+file.write("This is a placement assignment")
+file.close()
+open('example.txt','r')
+d = open("example.txt")
+d.read()
+def replace_string(search_text, replace_text):
+    with open('example.txt', 'r') as file:
+        data = file.read()
+        data = data.replace(search_text, replace_text)
+        with open('example.txt', 'w') as file:
+            file.write(data)
+replace_string('placement', 'screening')
+file2 = open('example.txt','r')
+file2.read()
+
+
+2.Abstract class
+
+- A class which contains one or more abstract methods is called an abstract class.
+- An abstract method is a method that has a declaration but does not have an implementation.
+- It allows you to create a set of methods that must be created within any child classes built from the abstract class.
+
+from abc import ABC, abstractmethod
+
+class Polygon(ABC):
+    def noofsides(self):
+        pass
+
+class Triangle(Polygon):
+    def noofsides(self):
+        print("I have 3 sides")
+
+class Pentagon(Polygon):
+    def noofsides(self):
+        print("I have 5 sides")
+
+class Hexagon(Polygon):
+    def noofsides(self):
+        print("I have 6 sides")
+
+class Quadrilateral(Polygon):
+    def noofsides(self):
+        print("I have 4 sides")
+
+R = Triangle()
+R.noofsides()
+
+K = Quadrilateral()
+K.noofsides()
+
+R = Pentagon()
+R.noofsides()
+
+K = Hexagon()
+K.noofsides()
+
+
+3.Multiple inheritance
+- Inheritance is the mechanism to achieve the re-usability of code as one class(child class) can derive the properties of another class(parent class).
+- A class can be derived from more than one base class in Python.This is called multiple inheritance.
+
+class Calculation1:  
+    def Summation(self,a,b):  
+        return a+b;  
+class Calculation2:  
+    def Multiplication(self,a,b):  
+        return a*b;  
+class Derived(Calculation1,Calculation2):  
+    def Divide(self,a,b):  
+        return a/b;  
+d = Derived()  
+ 
+print(d.Divide(1,2))  
+print(d.Summation(1,2)) 
+print(d.Multiplication(1,2)) 
+
+
+4.Decorator
+- It allows programmers to modify the behaviour of a function or class.
+- Allows a user to add new functionality to an existing object without modifying its structure.
+- Decorators are usually called before the definition of a function you want to decorate.
+
+def create_adder(x):
+    def adder(y):
+        return x+y
+    return adder
+
+add_100 = create_adder(100)
+print(add_100(200))
+
